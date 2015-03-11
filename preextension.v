@@ -1,7 +1,5 @@
 Require Export Foundations.hlevel2.hSet.
 Require Export carrier.
-
-About hfp.
               
 Definition preextensionAlg ( x : ecarrier ) : UU :=
   total2
@@ -93,4 +91,13 @@ Definition eext2 { x : ecarrier } ( CFT : preextensionAlg x ) : eF3 CFT -> eF2 C
   rewrite (eextcodeq CFT _).
   unfold eft2. simpl.
   exact s0.
+  Qed.
+
+Definition preextFamAlg { x : ecarrier } ( CFT : preextensionAlg x ) :
+  total2 preextensionAlg.
+  Proof.
+  refine (tpair _ _ _).
+  refine (ecarrier_construct _ _ _ _ _).
+  exact (eF x).
+  admit.
   Qed.

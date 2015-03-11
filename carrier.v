@@ -8,6 +8,19 @@ Definition ecarrier : UU :=
           (pr2 (pr2 CFT) -> pr1 (pr2 CFT))
     ).
 
+Definition ecarrier_construct ( C F T : hSet ) 
+           ( ft : F -> C ) ( par : T -> F ) : ecarrier.
+  Proof.
+  refine (tpair _ _ _);
+  refine (tpair _ _ _).
+  exact C.
+  exact (tpair _ F T).
+  simpl.
+  exact ft.
+  simpl.
+  exact par.
+  Qed.
+
 Definition eC (x : ecarrier) : hSet 
   := pr1 (pr1 x).
 
